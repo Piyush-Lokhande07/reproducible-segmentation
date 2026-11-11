@@ -117,9 +117,9 @@ def run_experiment(config_path: str = "configs/config.yaml", model_variant: str 
             if patience_counter >= patience:
                 print(f"Early stopping triggered at epoch {epoch}")
                 break
-
+ 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--model", type=str, default="baseline", choices=["baseline", "modified"])
     args = parser.parse_args()
-    run_experiment(model_variant=args.model
+    run_experiment(model_variant=args.model)
