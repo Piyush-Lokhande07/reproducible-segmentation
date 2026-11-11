@@ -1,0 +1,21 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+
+# Nix
+result
+result-*
+.direnv/
+
+# Data and Checkpoints
+data/
+checkpoints/*.pth
+logs/*.log
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
