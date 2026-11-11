@@ -43,7 +43,7 @@ class VOCSegmentationContract(Dataset):
         self, 
         root: str = "./data", 
         image_set: str = "train", 
-        download: bool = False,
+        download: bool = True,
         transforms: Optional[A.Compose] = None
     ):
         super().__init__()
