@@ -12,6 +12,7 @@ from src.utils import set_seed, log_environment_info
 from src.dataset import build_dataloaders
 from src.metrics import Evaluator
 from models.baseline import BaselineUNet
+from models.modified import AttentionUNet
 
 def train_one_epoch(model, loader, criterion, optimizer, device):
     model.train()
@@ -66,8 +67,13 @@ def run_experiment(config_path: str = "configs/config.yaml", model_variant: str 
     )
 
     # 3. Model setup
-    model = BaselineUNet(num_classes=cfg["data"]["num_classes"]).to(device)
-    
+    if model_variant == "baseline":
+        model = BaselineUNet(num_classes=cfg["data"]["num_classes"]).to(device)
+    elif model_variant == "modified":
+        model = AttentionUNet(num_classes=cfg["data"]["num_classes"]).to(device)
+    else:
+        raise ValueError(f"Unknown model variant: {model_variant}")
+
     # 4. Optimizer, Scheduler, Stopping Rule
     criterion = nn.CrossEntropyLoss(ignore_index=cfg["data"]["ignore_index"])
     optimizer = AdamW(model.parameters(), lr=float(cfg["training"]["lr"]), weight_decay=float(cfg["training"]["weight_decay"]))
@@ -116,4 +122,4 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--model", type=str, default="baseline", choices=["baseline", "modified"])
     args = parser.parse_args()
-    run_experiment(model_variant=args.model)
+    run_experiment(model_variant=args.model
