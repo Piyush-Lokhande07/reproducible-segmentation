@@ -1,0 +1,6 @@
+Python Version: 3.13.16 (main, Oct  1 2026, 15:40:24) [GCC 13.3.0]
+PyTorch Version: 2.11.0+cu130
+CUDA Available: True
+CUDA Version: 13.0
+GPU Device: Tesla T4
+cuDNN Version: 92700
