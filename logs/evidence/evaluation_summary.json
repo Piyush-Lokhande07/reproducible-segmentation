@@ -1,0 +1,43 @@
+{
+    "baseline": {
+        "mIoU": 0.5126,
+        "parameters": 14321781,
+        "latency_bs1": {
+            "batch_size": 1,
+            "resolution": "256x256",
+            "device": "Tesla T4",
+            "mean_latency_ms": 7.457,
+            "std_latency_ms": 0.051,
+            "throughput_fps": 134.11
+        },
+        "latency_bs16": {
+            "batch_size": 16,
+            "resolution": "256x256",
+            "device": "Tesla T4",
+            "mean_latency_ms": 43.571,
+            "std_latency_ms": 0.305,
+            "throughput_fps": 367.22
+        }
+    },
+    "modified_attention_skip": {
+        "mIoU": 0.5137,
+        "parameters": 14456705,
+        "param_overhead_pct": 0.94,
+        "latency_bs1": {
+            "batch_size": 1,
+            "resolution": "256x256",
+            "device": "Tesla T4",
+            "mean_latency_ms": 7.941,
+            "std_latency_ms": 0.068,
+            "throughput_fps": 125.93
+        },
+        "latency_bs16": {
+            "batch_size": 16,
+            "resolution": "256x256",
+            "device": "Tesla T4",
+            "mean_latency_ms": 49.224,
+            "std_latency_ms": 0.335,
+            "throughput_fps": 325.04
+        }
+    }
+}
